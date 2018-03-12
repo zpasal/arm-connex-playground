@@ -3,11 +3,12 @@ STARTUP_DEFS=-D__STARTUP_CLEAR_BSS -D__START=main
 NAME=main
 LDSCRIPTS=-T$(BASE)/ldscripts/linker.ld
 LFLAGS=$(LDSCRIPTS) $(GC) $(MAP)
-ELF=$(NAME).elf
-BIN=$(NAME).bin
-FLASH=flash.bin
+ELF=dist/$(NAME).elf
+BIN=dist/$(NAME).bin
+FLASH=dist/flash.bin
 
 $(ELF): $(NAME).c $(STARTUP)
+	mkdir dist
 	$(CC) $^ $(CFLAGS) $(LFLAGS) -o $@
 	$(NM) -n $(ELF)
 
@@ -21,3 +22,4 @@ run: flash
 
 clean: 
 	rm -f $(NAME)*.elf *.map *.o *.bin
+	rm -rf dist
