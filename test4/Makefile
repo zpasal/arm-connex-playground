@@ -8,7 +8,7 @@ BIN=dist/$(NAME).bin
 FLASH=dist/flash.bin
 
 $(ELF): $(NAME).c $(STARTUP)
-	mkdir dist
+	mkdir -p dist
 	$(CC) $^ $(CFLAGS) $(LFLAGS) -o $@
 	$(NM) -n $(ELF)
 

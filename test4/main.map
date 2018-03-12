@@ -1,0 +1,90 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x0000000000000000 0x0000000001000000
+RAM              0x00000000a0000000 0x0000000004000000
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD /var/folders/2_/r1wl7jjx6zv5wbgwcfcv_05r0000gp/T//cclQzqAs.ltrans0.ltrans.o
+LOAD /var/folders/2_/r1wl7jjx6zv5wbgwcfcv_05r0000gp/T//cc33b5zt.o
+                0x0000000000000000                . = 0x0
+
+.text           0x0000000000000000       0xa0
+ *(vectors)
+ vectors        0x0000000000000000       0x20 /var/folders/2_/r1wl7jjx6zv5wbgwcfcv_05r0000gp/T//cc33b5zt.o
+ *(.text)
+ .text          0x0000000000000020        0x0 /var/folders/2_/r1wl7jjx6zv5wbgwcfcv_05r0000gp/T//cclQzqAs.ltrans0.ltrans.o
+ .text          0x0000000000000020       0x6c /var/folders/2_/r1wl7jjx6zv5wbgwcfcv_05r0000gp/T//cc33b5zt.o
+ *fill*         0x000000000000008c        0x4 
+ .text.__stub   0x0000000000000090        0xc linker stubs
+ *(.init)
+ *(.fini)
+ *(.rodata)
+                0x000000000000009c                flash_sdata = .
+
+.glue_7         0x00000000000000a0        0x0
+ .glue_7        0x00000000000000a0        0x0 linker stubs
+
+.glue_7t        0x00000000000000a0        0x0
+ .glue_7t       0x00000000000000a0        0x0 linker stubs
+
+.vfp11_veneer   0x00000000000000a0        0x0
+ .vfp11_veneer  0x00000000000000a0        0x0 linker stubs
+
+.v4_bx          0x00000000000000a0        0x0
+ .v4_bx         0x00000000000000a0        0x0 linker stubs
+
+.text.startup.main
+                0x00000000000000a0       0x30
+ .text.startup.main
+                0x00000000000000a0       0x30 /var/folders/2_/r1wl7jjx6zv5wbgwcfcv_05r0000gp/T//cclQzqAs.ltrans0.ltrans.o
+                0x00000000000000a0                main
+
+.iplt           0x00000000000000d0        0x0
+ .iplt          0x00000000000000d0        0x0 /var/folders/2_/r1wl7jjx6zv5wbgwcfcv_05r0000gp/T//cc33b5zt.o
+
+.rodata.main.str1.1
+                0x00000000000000d0        0x6
+ .rodata.main.str1.1
+                0x00000000000000d0        0x6 /var/folders/2_/r1wl7jjx6zv5wbgwcfcv_05r0000gp/T//cclQzqAs.ltrans0.ltrans.o
+
+.rel.dyn        0x00000000000000d8        0x0
+ .rel.iplt      0x00000000000000d8        0x0 /var/folders/2_/r1wl7jjx6zv5wbgwcfcv_05r0000gp/T//cc33b5zt.o
+                0x00000000a0000000                . = 0xa0000000
+                0x00000000a0000000                ram_sdata = .
+
+.data           0x00000000a0000000        0x0 load address 0x00000000000000a0
+ *(.data)
+ .data          0x00000000a0000000        0x0 /var/folders/2_/r1wl7jjx6zv5wbgwcfcv_05r0000gp/T//cclQzqAs.ltrans0.ltrans.o
+ .data          0x00000000a0000000        0x0 /var/folders/2_/r1wl7jjx6zv5wbgwcfcv_05r0000gp/T//cc33b5zt.o
+                0x00000000a0000000                ram_edata = .
+                0x0000000000000000                data_size = (ram_edata - ram_sdata)
+                0x00000000a0000000                sbss = .
+
+.igot.plt       0x00000000a0000000        0x0 load address 0x00000000000000a0
+ .igot.plt      0x00000000a0000000        0x0 /var/folders/2_/r1wl7jjx6zv5wbgwcfcv_05r0000gp/T//cc33b5zt.o
+
+.bss            0x00000000a0000000        0x0 load address 0x00000000000000a0
+ *(.bss)
+ .bss           0x00000000a0000000        0x0 /var/folders/2_/r1wl7jjx6zv5wbgwcfcv_05r0000gp/T//cclQzqAs.ltrans0.ltrans.o
+ .bss           0x00000000a0000000        0x0 /var/folders/2_/r1wl7jjx6zv5wbgwcfcv_05r0000gp/T//cc33b5zt.o
+                0x00000000a0000000                ebss = .
+                0x0000000000000000                bss_size = (ebss - sbss)
+OUTPUT(dist/main.elf elf32-littlearm)
+
+.bss.sum        0x00000000a0000000        0x4 load address 0x00000000000000a0
+ .bss.sum       0x00000000a0000000        0x4 /var/folders/2_/r1wl7jjx6zv5wbgwcfcv_05r0000gp/T//cclQzqAs.ltrans0.ltrans.o
+
+.comment        0x0000000000000000       0x7e
+ .comment       0x0000000000000000       0x7e /var/folders/2_/r1wl7jjx6zv5wbgwcfcv_05r0000gp/T//cclQzqAs.ltrans0.ltrans.o
+                                         0x7f (size before relaxing)
+
+.ARM.attributes
+                0x0000000000000000       0x2c
+ .ARM.attributes
+                0x0000000000000000       0x2e /var/folders/2_/r1wl7jjx6zv5wbgwcfcv_05r0000gp/T//cclQzqAs.ltrans0.ltrans.o
+ .ARM.attributes
+                0x000000000000002e       0x12 /var/folders/2_/r1wl7jjx6zv5wbgwcfcv_05r0000gp/T//cc33b5zt.o
